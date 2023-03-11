@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+<!--Author: Hammad Ali -->
+<head>
+	<title>Calculator Functions</title>
+	<style type=text/css>
+		body{
+			background-color: lightgreen;
+			color: navy;
+			font-family: Rockwell;
+		}
+	</style>
+	
+	<script>
+		function findSum(){
+			//Grab the two input values from the text boxes
+			var input1 = Number(document.getElementById("idTxtInput1").value);
+			var input2 = Number(document.getElementById("idTxtInput2").value);
+			var input3 = Number(document.getElementById("idTxtInput3").value);
+		
+			//Find the sum of the two input values, and put it into the output text box
+			document.getElementById("idTxtOutput").value = input1 + input2 + input3;
+		}
+		
+		function findDifference(){
+		//Grab the two input values from the text boxes
+			var input1 = Number(document.getElementById("idTxtInput1").value);
+			var input2 = Number(document.getElementById("idTxtInput2").value);
+			var input3 = Number(document.getElementById("idTxtInput3").value);
+		
+			//Find the difference of the two input values, and put it into the output text box
+			document.getElementById("idTxtOutput").value = input1 - input2 - input3;
+		}
+		
+		function findProduct(){
+			//Grab the input values from the text boxes
+			var input1 = Number(document.getElementById("idTxtInput1").value);
+			var input2 = Number(document.getElementById("idTxtInput2").value);
+			var input3 = Number(document.getElementById("idTxtInput3").value);
+		
+			//Find the product of the two input values, and put it into the output text box
+			document.getElementById("idTxtOutput").value = input1 * input2 * input3;
+		}
+		
+		function findQuotient(){
+			//Grab the two input values from the text boxes
+			var input1 = Number(document.getElementById("idTxtInput1").value);
+			var input2 = Number(document.getElementById("idTxtInput2").value);
+			var input3 = Number(document.getElementById("idTxtInput3").value);
+		
+			//Find the quotient of the two input values, and put it into the output text box
+			document.getElementById("idTxtOutput").value = input1 / input2 / input3;
+		}
+		
+		function findEqual(){
+			//Grab the two input values from the text boxes
+			var input1 = Number(document.getElementById("idTxtInput1").value);
+			var input2 = Number(document.getElementById("idTxtInput2").value);
+		
+			//Check if the two input values are equal, and put it into the output text box
+			document.getElementById("idTxtOutput").value
+			if ( input1 == input2){
+				document.getElementById("idTxtOutput").value = "These two numbers are equal"
+			}
+			
+			else {document.getElementById("idTxtOutput").value = "These two numbers are not equal"
+				
+			}
+				
+		}
+		
+		function findMax(){
+			//Grab the two input values from the text boxes
+			var input1 = Number(document.getElementById("idTxtInput1").value);
+			var input2 = Number(document.getElementById("idTxtInput2").value);
+		
+			//Find which number is greater and output
+			document.getElementById("idTxtOutput").value
+			if ( input1 > input2){
+				document.getElementById("idTxtOutput").value = "The maximum value is " + input1
+			}
+			
+			else {document.getElementById("idTxtOutput").value = "The maximum value is " + input2
+				
+			}
+				
+		}
+	</script>
+</head>
+
+<body>
+	<form>
+		<input type="text" id="idTxtInput1">
+		<input type="text" id="idTxtInput2">
+		<input type="text" id="idTxtInput3">
+		
+		<br><br>
+		<input type="button" id="idBtnAdd" value="ADD" onclick="findSum()">
+		<input type="button" id="idBtnSubtract" value="SUBTRACT" onclick="findDifference()">
+		<input type="button" id="idBtnMultiply" value="MULTIPLY" onclick="findProduct()">
+		<input type="button" id="idBtnDivide" value="DIVIDE" onclick="findQuotient()">
+		<input type="button" id="idBtnEqual" value="EQUAL" onclick="findEqual()">
+		<input type="button" id="idBtnMax" value="MAXIMUM" onclick="findMax()">
+		
+		<br><br>
+		<input type="text" id="idTxtOutput">
+	</form>
+</body>
+</html>
+		

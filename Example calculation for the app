@@ -1,0 +1,25 @@
+//Author- Vijwal Rao Akula
+//this below is an example of what the app aims to do in Java
+
+float income = 10000;
+float expenditure = 5000;
+float tax = 20;
+float div = 4;
+float principle = expenditure * 120000 / ((100 * div) - (tax * div));
+float x = 10;
+float y = 4;
+float roi = (100 + x) / (100 + y);
+float number = roi;
+int retireage = 60;
+int presentage = 20;
+int n = retireage - presentage;
+for (int i = 1; i < n; i++) {
+  roi = roi * number;
+}
+float geometricprogression = (roi - 1) / (number - 1);
+float savings = principle / geometricprogression;
+float monthlysavings = savings / 12;
+System.out.print("You need to save $" + monthlysavings + " to retire at age ");
+System.out.print(retireage + ", currently ");
+float percentagesavings = (monthlysavings / income) * 100;
+System.out.println(percentagesavings + "% of your income");

@@ -2,7 +2,6 @@
 <html>
 <head>
 	<title>Financial Calculator Project</title>
-	<link rel=stylesheet type="text/css" href="WebStyle.css">
 	<style type=text/css>
 		body{
 			background-color: #dfe6e9;
@@ -11,10 +10,17 @@
 	</style>
 
 <script>
-	// Scripting can be filled in later with functions
-	// relevant to the financial calculator
-	function calculate(){
+	function calculate() {
+		var yearly_salary = Number(document.getElementById("idTxtInput1").value);
+		var current_age = Number(document.getElementById("idTxtInput2").value);
+		var desired_retirement_age = Number(document.getElementById("idTxtInput3").value);
+		var desired_annual_income = Number(document.getElementById("idTxtInput4").value);
+		var annual_interest_rate = Number(document.getElementById("idTxtInput5").value);
+		var present_savings = Number(document.getElementById("idTxtInput6").value);
 
+		var years_until_retirement = desired_retirement_age - current_age;
+		var future_value = present_savings * (1 + annual_interest_rate/100) ** years_until_retirement;
+		var yearly_savings_needed = (future_value - present_savings) / (((1 + annual_interest_rate/100) ** years_until_retirement - 1) / (annual_interest_rate/100));
 	}
 </script>
 
@@ -22,7 +28,7 @@
 <body>
 	<div><h1>Financial Calculator</h1></div>
 	<form>
-	<label for="idTxtInput1">Monthly Salary:</label>
+	<label for="idTxtInput1">Yearly Salary:</label>
 	<input type="text" id="idTxtInput1">
 	
 	<br><br>
@@ -46,12 +52,33 @@
 	<input type="text" id="idTxtInput5">
 	
 	<br><br>
+
+	<label for="idTxtInput6">Present savings:</label>
+	<input type="text" id="idTxtInput6">
 	
-	<!-- <input type="button" id="idBtnCalc" value="Calculate" onclick="calculate()"> -->
-	<p class="customButton" id="button1" 
-			onClick="calculate()">
-			Calculate
-		</p>
+	<br><br>
+
+	<label for="idTxtInput7">Periodic Payment (PMT):</label>
+	<input type="text" id="idTxtInput7">
+	
+	<br><br>
+
+	<label for="idTxtInput8">Starting Principal:</label>
+	<input type="text" id="idTxtInput8">
+	
+	<br><br>
+
+	<label for="idTxtInput9">Annual Contribution:</label>
+	<input type="text" id="idTxtInput9">
+	
+	<br><br>
+
+	<label for="idTxtInput10">Inflation Rate::</label>
+	<input type="text" id="idTxtInput10">
+	
+	<br><br>
+	
+	<input type="button" id="idBtnCalc" value="Calculate" onclick="calculate()">
 	
 	<br><br>
 	

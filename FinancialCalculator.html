@@ -2,6 +2,7 @@
 <html>
 <head>
 	<title>Financial Calculator Project</title>
+	<link rel=stylesheet type="text/css" href="WebStyle.css">
 	<style type=text/css>
 		body{
 			background-color: #dfe6e9;
@@ -21,7 +22,7 @@
 <body>
 	<div><h1>Financial Calculator</h1></div>
 	<form>
-	<label for="idTxtInput1">Yearly Salary:</label>
+	<label for="idTxtInput1">Monthly Salary:</label>
 	<input type="text" id="idTxtInput1">
 	
 	<br><br>
@@ -45,33 +46,12 @@
 	<input type="text" id="idTxtInput5">
 	
 	<br><br>
-
-	<label for="idTxtInput6">Present savings:</label>
-	<input type="text" id="idTxtInput6">
 	
-	<br><br>
-
-	<label for="idTxtInput7">Periodic Payment (PMT):</label>
-	<input type="text" id="idTxtInput7">
-	
-	<br><br>
-
-	<label for="idTxtInput8">Starting Principal:</label>
-	<input type="text" id="idTxtInput8">
-	
-	<br><br>
-
-	<label for="idTxtInput9">Annual Contribution:</label>
-	<input type="text" id="idTxtInput9">
-	
-	<br><br>
-
-	<label for="idTxtInput10">Inflation Rate::</label>
-	<input type="text" id="idTxtInput10">
-	
-	<br><br>
-	
-	<input type="button" id="idBtnCalc" value="Calculate" onclick="calculate()">
+	<!-- <input type="button" id="idBtnCalc" value="Calculate" onclick="calculate()"> -->
+	<p class="customButton" id="button1" 
+			onClick="calculate()">
+			Calculate
+		</p>
 	
 	<br><br>
 	

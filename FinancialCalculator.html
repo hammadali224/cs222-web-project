@@ -11,16 +11,21 @@
 
 <script>
 	function calculate() {
-		var yearly_salary = Number(document.getElementById("idTxtInput1").value);
-		var current_age = Number(document.getElementById("idTxtInput2").value);
-		var desired_retirement_age = Number(document.getElementById("idTxtInput3").value);
+		var current_age = Number(document.getElementById("idTxtInput1").value);
+		var desired_retirement_age = Number(document.getElementById("idTxtInput2").value);
+		var yearly_salary = Number(document.getElementById("idTxtInput3").value);
 		var desired_annual_income = Number(document.getElementById("idTxtInput4").value);
-		var annual_interest_rate = Number(document.getElementById("idTxtInput5").value);
-		var present_savings = Number(document.getElementById("idTxtInput6").value);
+		var life_expectancy = Number(document.getElementById("idTxtInput5").value);
+		var current_savings = Number(document.getElementById("idTxtInput6").value);
+		var monthly_savings = Number(document.getElementById("idTxtInput7").value);
 
 		var years_until_retirement = desired_retirement_age - current_age;
-		var future_value = present_savings * (1 + annual_interest_rate/100) ** years_until_retirement;
-		var yearly_savings_needed = (future_value - present_savings) / (((1 + annual_interest_rate/100) ** years_until_retirement - 1) / (annual_interest_rate/100));
+		var retirment_length = life_expectancy - desired_retirement_age;
+		var savings_required = retirment_length * desired_annual_income;
+		var savings_at_retirement = (monthly_savings * years_until_retirement) + current_savings;
+		var savings_needed = savings_required - savings_at_retirement;
+
+		document.getElementById("idTxtOutput").value = savings_needed;
 	}
 </script>
 
@@ -28,17 +33,17 @@
 <body>
 	<div><h1>Financial Calculator</h1></div>
 	<form>
-	<label for="idTxtInput1">Yearly Salary:</label>
+	<label for="idTxtInput1">Current Age:</label>
 	<input type="text" id="idTxtInput1">
 	
 	<br><br>
 	
-	<label for="idTxtInput2">Current Age:</label>
+	<label for="idTxtInput2">Desired Retirement Age:</label>
 	<input type="text" id="idTxtInput2">
 
 	<br><br>
 	
-	<label for="idTxtInput3">Desired Retirement Age:</label>
+	<label for="idTxtInput3">Yearly Salary:</label>
 	<input type="text" id="idTxtInput3">
 
 	<br><br>
@@ -48,33 +53,18 @@
 
 	<br><br>
 	
-	<label for="idTxtInput5">Annual Interest Rate (%):</label>
+	<label for="idTxtInput5">Life Expectancy:</label>
 	<input type="text" id="idTxtInput5">
 	
 	<br><br>
 
-	<label for="idTxtInput6">Present savings:</label>
+	<label for="idTxtInput5">Current Savings:</label>
 	<input type="text" id="idTxtInput6">
 	
 	<br><br>
 
-	<label for="idTxtInput7">Periodic Payment (PMT):</label>
+	<label for="idTxtInput5">Monthly Savings:</label>
 	<input type="text" id="idTxtInput7">
-	
-	<br><br>
-
-	<label for="idTxtInput8">Starting Principal:</label>
-	<input type="text" id="idTxtInput8">
-	
-	<br><br>
-
-	<label for="idTxtInput9">Annual Contribution:</label>
-	<input type="text" id="idTxtInput9">
-	
-	<br><br>
-
-	<label for="idTxtInput10">Inflation Rate::</label>
-	<input type="text" id="idTxtInput10">
 	
 	<br><br>
 	
@@ -83,7 +73,7 @@
 	<br><br>
 	
 	<label for="idTxtOutput">Result:</label>
-	<input type="text" id="idTxtOutput">
+	<output type="text" id="idTxtOutput">
 	</form>
 </body>
 </html>

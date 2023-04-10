@@ -2,78 +2,96 @@
 <html>
 <head>
 	<title>Financial Calculator Project</title>
+	<link rel="stylesheet" type="text/css" href="WebStyle.css">
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
 	<style type=text/css>
-		body{
-			background-color: #dfe6e9;
-			font-family: Tahoma, sans-serif;
-		}
 	</style>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 <script>
+	// Scripting can be filled in later with functions
+	// relevant to the financial calculator
 	function calculate() {
-		var current_age = Number(document.getElementById("idTxtInput1").value);
-		var desired_retirement_age = Number(document.getElementById("idTxtInput2").value);
-		var yearly_salary = Number(document.getElementById("idTxtInput3").value);
-		var desired_annual_income = Number(document.getElementById("idTxtInput4").value);
-		var life_expectancy = Number(document.getElementById("idTxtInput5").value);
-		var current_savings = Number(document.getElementById("idTxtInput6").value);
-		var monthly_savings = Number(document.getElementById("idTxtInput7").value);
+ 		var yearly_salary = Number(document.getElementById("idTxtInput1").value);
+ 		var current_age = Number(document.getElementById("idTxtInput2").value);
+ 		var desired_retirement_age = Number(document.getElementById("idTxtInput3").value);
+ 		var current_age = Number(document.getElementById("idTxtInput1").value);
+ 		var desired_retirement_age = Number(document.getElementById("idTxtInput2").value);
+ 		var yearly_salary = Number(document.getElementById("idTxtInput3").value);
+ 		var desired_annual_income = Number(document.getElementById("idTxtInput4").value);
+ 		var annual_interest_rate = Number(document.getElementById("idTxtInput5").value);
+ 		var present_savings = Number(document.getElementById("idTxtInput6").value);
+ 		var life_expectancy = Number(document.getElementById("idTxtInput5").value);
+ 		var current_savings = Number(document.getElementById("idTxtInput6").value);
+ 		var monthly_savings = Number(document.getElementById("idTxtInput7").value);
 
-		var years_until_retirement = desired_retirement_age - current_age;
-		var retirment_length = life_expectancy - desired_retirement_age;
-		var savings_required = retirment_length * desired_annual_income;
-		var savings_at_retirement = (monthly_savings * years_until_retirement) + current_savings;
-		var savings_needed = savings_required - savings_at_retirement;
+ 		var years_until_retirement = desired_retirement_age - current_age;
+ 		var future_value = present_savings * (1 + annual_interest_rate/100) ** years_until_retirement;
+ 		var yearly_savings_needed = (future_value - present_savings) / (((1 + annual_interest_rate/100) ** years_until_retirement - 1) / (annual_interest_rate/100));
+ 		var retirment_length = life_expectancy - desired_retirement_age;
+ 		var savings_required = retirment_length * desired_annual_income;
+ 		var savings_at_retirement = (monthly_savings * years_until_retirement) + current_savings;
+ 		var savings_needed = savings_required - savings_at_retirement;
 
-		document.getElementById("idTxtOutput").value = savings_needed;
-	}
+ 		document.getElementById("idTxtOutput").value = savings_needed;
+ 	}
 </script>
 
 </head>
-<body>
-	<div><h1>Financial Calculator</h1></div>
-	<form>
-	<label for="idTxtInput1">Current Age:</label>
-	<input type="text" id="idTxtInput1">
+<body style="background-color: #dfe6e9; font-family: Tahoma, sans-serif;">
+	<div class="px-2"><h1>Financial Calculator</h1></div>
+	<hr style="margin-right: 10px; margin-left: 10px;">
+	<form class="w-25" style="margin-left: 25px;">
+	<div class="">
+  		<label for="idTxtInput1" class="form-label">Yearly Salary</label>
+ 		<input type="text" class="form-control" id="idTxtInput1" placeholder="00.00">
+	</div>
+	<br>
+	<div class="">
+  		<label for="idTxtInput2" class="form-label">Current Age</label>
+ 		<input type="text" class="form-control" id="idTxtInput2" placeholder="21">
+	</div>
+	<br>
+	
+	<div class="">
+  		<label for="idTxtInput3" class="form-label">Desired Retirement Age</label>
+ 		<input type="text" class="form-control" id="idTxtInput3" placeholder="65">
+	</div>
+	<br>
+	
+	<div class="">
+  		<label for="idTxtInput4" class="form-label">Desired Annual Income During Retirement</label>
+ 		<input type="text" class="form-control" id="idTxtInput4" placeholder="00.00">
+	</div>
+	<br>
+	
+	<div class="">
+  		<label for="idTxtInput5" class="form-label">Annual Interest Rate (%)</label>
+ 		<input type="text" class="form-control" id="idTxtInput5" placeholder="15">
+	</div>
+	<br>
+	
+	<div class="">
+  		<label for="idTxtInput6" class="form-label">Current Savings</label>
+ 		<input type="text" class="form-control" id="idTxtInput6" placeholder="10000">
+	</div>
+	<br>
+	
+	<div class="">
+  		<label for="idTxtInput7" class="form-label">Monthly Savings</label>
+ 		<input type="text" class="form-control" id="idTxtInput7" placeholder="200">
+	</div>
+	<br>
+	
+	<button id="button1" type="button" class="btn btn-primary btn-lg" onclick="calculate()">Calculate</button>
 	
 	<br><br>
 	
-	<label for="idTxtInput2">Desired Retirement Age:</label>
-	<input type="text" id="idTxtInput2">
-
+	<label for="idTxtOutput">Result</label>
+	<input class="form-control" id="idTxtOutput" type="text" value="" readonly>
 	<br><br>
-	
-	<label for="idTxtInput3">Yearly Salary:</label>
-	<input type="text" id="idTxtInput3">
-
-	<br><br>
-	
-	<label for="idTxtInput4">Desired Annual Income During Retirement:</label>
-	<input type="text" id="idTxtInput4">
-
-	<br><br>
-	
-	<label for="idTxtInput5">Life Expectancy:</label>
-	<input type="text" id="idTxtInput5">
-	
-	<br><br>
-
-	<label for="idTxtInput5">Current Savings:</label>
-	<input type="text" id="idTxtInput6">
-	
-	<br><br>
-
-	<label for="idTxtInput5">Monthly Savings:</label>
-	<input type="text" id="idTxtInput7">
-	
-	<br><br>
-	
-	<input type="button" id="idBtnCalc" value="Calculate" onclick="calculate()">
-	
-	<br><br>
-	
-	<label for="idTxtOutput">Result:</label>
-	<output type="text" id="idTxtOutput">
 	</form>
 </body>
 </html>

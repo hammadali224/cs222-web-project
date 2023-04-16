@@ -41,57 +41,65 @@
 
 </head>
 <body style="background-color: #dfe6e9; font-family: Tahoma, sans-serif;">
-	<div class="px-2"><h1>Financial Calculator</h1></div>
-	<hr style="margin-right: 10px; margin-left: 10px;">
-	<form class="w-25" style="margin-left: 25px;">
-	<div class="">
-  		<label for="idTxtInput1" class="form-label">Yearly Salary</label>
- 		<input type="text" class="form-control" id="idTxtInput1" placeholder="00.00">
-	</div>
-	<br>
-	<div class="">
-  		<label for="idTxtInput2" class="form-label">Current Age</label>
- 		<input type="text" class="form-control" id="idTxtInput2" placeholder="21">
-	</div>
-	<br>
+	<div class="px-2 text-center"><h1>Financial Calculator</h1></div>
+	<hr class="mx-5">
+	<form class="mx-5" style="">
+		<div class="row">
+			<div class="col">
+				<label for="idTxtInput1" class="form-label">Yearly Salary</label>
+				<input type="text" class="form-control" id="idTxtInput1" placeholder="00.00">
+			</div>
+			<br>
+			<div class="col">
+				<label for="idTxtInput2" class="form-label">Current Age</label>
+				<input type="text" class="form-control" id="idTxtInput2" placeholder="21">
+			</div>
+		</div>
+		<br>
+		<div class="row">	
+			<div class="col">
+				<label for="idTxtInput3" class="form-label">Desired Retirement Age</label>
+				<input type="text" class="form-control" id="idTxtInput3" placeholder="65">
+			</div>
+			<br>
+		
+			<div class="col">
+				<label for="idTxtInput4" class="form-label">Desired Annual Income During Retirement</label>
+				<input type="text" class="form-control" id="idTxtInput4" placeholder="00.00">
+			</div>
+		</div>
+		<br>
+		
+		<div class="row">
+			<div class="col">
+				<label for="idTxtInput5" class="form-label">Annual Interest Rate (%)</label>
+				<input type="text" class="form-control" id="idTxtInput5" placeholder="15">
+			</div>
+			<br>
+			
+			<div class="col">
+				<label for="idTxtInput6" class="form-label">Current Savings</label>
+				<input type="text" class="form-control" id="idTxtInput6" placeholder="10000">
+			</div>
+		</div>
+		<br>
 	
-	<div class="">
-  		<label for="idTxtInput3" class="form-label">Desired Retirement Age</label>
- 		<input type="text" class="form-control" id="idTxtInput3" placeholder="65">
-	</div>
-	<br>
-	
-	<div class="">
-  		<label for="idTxtInput4" class="form-label">Desired Annual Income During Retirement</label>
- 		<input type="text" class="form-control" id="idTxtInput4" placeholder="00.00">
-	</div>
-	<br>
-	
-	<div class="">
-  		<label for="idTxtInput5" class="form-label">Annual Interest Rate (%)</label>
- 		<input type="text" class="form-control" id="idTxtInput5" placeholder="15">
-	</div>
-	<br>
-	
-	<div class="">
-  		<label for="idTxtInput6" class="form-label">Current Savings</label>
- 		<input type="text" class="form-control" id="idTxtInput6" placeholder="10000">
-	</div>
-	<br>
-	
-	<div class="">
-  		<label for="idTxtInput7" class="form-label">Monthly Savings</label>
- 		<input type="text" class="form-control" id="idTxtInput7" placeholder="200">
-	</div>
-	<br>
-	
-	<button id="button1" type="button" class="btn btn-primary btn-lg" onclick="calculate()">Calculate</button>
-	
-	<br><br>
-	
-	<label for="idTxtOutput">Result</label>
-	<input class="form-control" id="idTxtOutput" type="text" value="" readonly>
-	<br><br>
+		<div class="mx-5">
+			<label for="idTxtInput7" class="form-label">Monthly Savings</label>
+			<input type="text" class="form-control" id="idTxtInput7" placeholder="200">
+		</div>
+		<br>
+		
+		<div class="container text-center">
+			<button id="button1" type="button" class="btn btn-primary btn-lg" onclick="calculate()">Calculate</button>
+
+			<br><br>
+
+			<label for="idTxtOutput" class="fs-4">Result</label>
+			<input class="form-control" id="idTxtOutput" type="text" value="" readonly>
+		</div>
+
+		<br><br>
 	</form>
 </body>
 </html>

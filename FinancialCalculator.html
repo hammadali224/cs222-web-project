@@ -14,26 +14,33 @@
 	// Scripting can be filled in later with functions
 	// relevant to the financial calculator
 	function calculate() {
- 		var yearly_salary = Number(document.getElementById("idTxtInput1").value);
+		var yearly_salary = Number(document.getElementById("idTxtInput1").value);
  		var current_age = Number(document.getElementById("idTxtInput2").value);
  		var desired_retirement_age = Number(document.getElementById("idTxtInput3").value);
- 		var current_age = Number(document.getElementById("idTxtInput1").value);
- 		var desired_retirement_age = Number(document.getElementById("idTxtInput2").value);
- 		var yearly_salary = Number(document.getElementById("idTxtInput3").value);
  		var desired_annual_income = Number(document.getElementById("idTxtInput4").value);
  		var annual_interest_rate = Number(document.getElementById("idTxtInput5").value);
- 		var present_savings = Number(document.getElementById("idTxtInput6").value);
- 		var life_expectancy = Number(document.getElementById("idTxtInput5").value);
  		var current_savings = Number(document.getElementById("idTxtInput6").value);
  		var monthly_savings = Number(document.getElementById("idTxtInput7").value);
+		var life_expectancy = Number(document.getElementById("idTxtInput8").value);
+
+		if (yearly_salary < 0 || current_age < 0 || desired_retirement_age < 0 || desired_annual_income < 0 || annual_interest_rate < 0 || life_expectancy < 0 ||
+			current_savings < 0 || monthly_savings < 0 || life_expectancy < 0) {
+			alert("Values inputted cannot be negative.")
+		 }
+
+		 if (current_age > life_expectancy) {
+			alert("Current age must be less than life expectancy.");
+		 }	
 
  		var years_until_retirement = desired_retirement_age - current_age;
- 		var future_value = present_savings * (1 + annual_interest_rate/100) ** years_until_retirement;
- 		var yearly_savings_needed = (future_value - present_savings) / (((1 + annual_interest_rate/100) ** years_until_retirement - 1) / (annual_interest_rate/100));
- 		var retirment_length = life_expectancy - desired_retirement_age;
- 		var savings_required = retirment_length * desired_annual_income;
- 		var savings_at_retirement = (monthly_savings * years_until_retirement) + current_savings;
- 		var savings_needed = savings_required - savings_at_retirement;
+		var retirment_length = life_expectancy - desired_retirement_age;
+		var savings_required = retirment_length * desired_annual_income;
+		var savings_at_retirement = (monthly_savings * years_until_retirement) + current_savings * (2.71828 ** (annual_interest_rate * years_until_retirement));
+		var savings_needed = savings_required - savings_at_retirement;
+
+		if (savings_needed < 0) {
+			alert("You have enough savings to retire at the desired age.")
+		}
 
  		document.getElementById("idTxtOutput").value = savings_needed;
  	}
@@ -87,6 +94,11 @@
 		<div class="mx-5">
 			<label for="idTxtInput7" class="form-label">Monthly Savings</label>
 			<input type="text" class="form-control" id="idTxtInput7" placeholder="200">
+		</div>
+		<br>
+		<div class="mx-5">
+			<label for="idTxtInput7" class="form-label">Life expectancy:</label>
+			<input type="text" class="form-control" id="idTxtInput8" placeholder="90">
 		</div>
 		<br>
 		

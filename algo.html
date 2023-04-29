@@ -1,0 +1,26 @@
+<pre><code>&lt;script&gt;
+function retirementsavingscalc(income, expenditure, currsavings, tax, div, roi, inf, retireage, presentage) {
+  if (tax &gt; 100) {
+    console.log("Error: Tax cannot be more than 100%.");
+    return;
+  }
+  if (retireage &lt;= presentage) {
+    console.log("Error: Retireage must be greater than presentage.");
+    return;
+  }
+  
+  const principle = (expenditure * 10000) / ((100 * div) - (tax * div));
+  const exproi = Math.pow((100 + roi) / (100 + inf), retireage - presentage);
+  const x = (currsavings) * (exproi);
+  const y = (expenditure) * (100/div) * (100 / (100 - tax)) * 12;
+  if (x &gt;= y) {
+    console.log("Congratulations! You have achieved Financial freedom. Your savings invested are enough to fund your retirement");
+    return;
+  }
+  const currentsavingendval = currsavings * exproi;
+  const savings = (principle - currentsavingendval) * (roi - 1) / (exproi - 1);
+  const intpercent = (savings / income) * 100;
+  console.log(`You have to save $${savings.toFixed(2)} of your monthly income, which is about ${intpercent.toFixed(2)}% to retire at the age of your choice`);
+}
+&lt;/script&gt;
+</code></pre>

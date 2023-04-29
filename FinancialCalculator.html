@@ -103,10 +103,20 @@
 		<br>
 		
 		<div class="container text-center">
+			<div class="dropdown">
+				<button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+				Dropdown button
+				</button>
+				<ul class="dropdown-menu">
+					<li><a class="dropdown-item" href="#">Formula #1</a></li>
+					<li><a class="dropdown-item" href="#">Formula #2</a></li>
+				</ul>
+			</div>
+			<br>
+			
 			<button id="button1" type="button" class="btn btn-primary btn-lg" onclick="calculate()">Calculate</button>
 
 			<br><br>
-
 			<label for="idTxtOutput" class="fs-4">Result</label>
 			<input class="form-control" id="idTxtOutput" type="text" value="" readonly>
 		</div>

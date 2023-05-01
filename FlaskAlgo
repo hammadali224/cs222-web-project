@@ -1,0 +1,37 @@
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/retirementsavingscalc', methods=['POST'])
+def retirementsavingscalc():
+    data = request.json
+    income = data['income']
+    expenditure = data['expenditure']
+    currsavings = data['currsavings']
+    tax = data['tax']
+    div = data['div']
+    roi = data['roi']
+    inf = data['inf']
+    retireage = data['retireage']
+    presentage = data['presentage']
+
+    if tax > 100:
+        return jsonify({"error": "Tax cannot be more than 100%."})
+    if retireage <= presentage:
+        return jsonify({"error": "Retireage must be greater than presentage."})
+
+    principle = (expenditure * 10000) / ((100 * div) - (tax * div))
+    exproi = ((100 + roi) / (100 + inf)) ** (retireage - presentage)
+    x = currsavings * exproi
+    y = (expenditure * 100 / div) * (100 / (100 - tax)) * 12
+    if x >= y:
+        return jsonify({"message": "Congratulations! You have achieved Financial freedom. Your savings invested are enough to fund your retirement"})
+    
+    currentsavingendval = currsavings * exproi
+    savings = (principle - currentsavingendval) * (roi - 1) / (exproi - 1)
+    intpercent = (savings / income) * 100
+    
+    return jsonify({
+        "savings": savings,
+        "intpercent": intpercent
+    })

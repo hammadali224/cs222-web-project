@@ -1,24 +1,84 @@
-# cs222-web-project
 
-Project name: Financial Calculator
+# Financial Calculator
 
-Our project defines a Flask web application that allows users to input financial information and calculates if they are on track to retire with their desired income.
+This project is a web application for a financial calculator that helps users plan their retirement by providing various investment strategies based on their current age, desired retirement age, current savings, annual contributions, and desired net worth at retirement.
 
-The calculate() function in app.py takes in multiple arguments that represent the user's financial information, including their yearly salary, current age, desired retirement age, desired annual income during retirement, annual interest rate, present savings, periodic payment, starting principal, annual contribution, and inflation rate.
+## Introduction
 
-It first checks that all input values are valid numbers and positive. Then, it calculates the number of years until retirement and the future value of the user's current savings, periodic payments, and annual contributions. It also adjusts the desired annual income during retirement for inflation. Finally, it calculates the amount the user needs to save each year to reach their retirement savings goal and determines if the user is on track to retire with their desired income.
+The financial calculator allows users to input their financial data and provides a set of recommendations for Conservative, Moderate, and Aggressive investment strategies. This helps users make informed decisions about their investments to achieve their desired retirement goals.
 
-The index() function handles the GET and POST requests to the application. If the request is a POST request, it retrieves the user's input values, passes them to the calculate() function to calculate the result, and renders the result on the HTML template. If the request is a GET request, it simply renders the HTML template with no result.
+## Technical Architecture
 
-Overall, this code provides a basic framework for a retirement calculator web application. However, it could be improved by including error messages for invalid input values and improving the user interface.
+The application is built using Flask, a Python-based micro-framework. It utilizes:
 
-Roles and Responsibilites 
+1. Flask-SQLAlchemy for database management.
+2. Flask-Migrate for database migration.
+3. Flask-Login for user authentication and session management.
+4. Flask-Session for server-side session storage.
 
-Hammad Ali : Front-end development
+The application follows the MVC (Model-View-Controller) design pattern. The `User` and `CalculationResult` models handle the database schema and relationships. The `app.py` file contains the views and routes for handling user registration, login, calculator, and results pages.
 
-Fawzan Ali : Integration and App development
+## Installation Instructions
 
-Siddhesh Agarwal : Back-end development and Database management
+To set up the project locally, follow these steps:
 
-Vijwal Rao Akula : Algorithm Development and Testing
+1. Clone the repository to your local machine.
 
+   ```
+   git clone https://github.com/hammadali224/cs222-web-project.git
+   cd cs222-web-project
+   ```
+
+2. Create a virtual environment and activate it:
+
+   ```
+   python3 -m venv venv
+   source venv/bin/activate
+   ```
+
+3. Install the required packages using the `requirements.txt` file:
+
+   ```
+   pip install -r requirements.txt
+   ```
+
+4. Run the database migration to set up the database:
+
+   ```
+   python3 -m flask db init
+   python3 -m flask db migrate
+   python3 -m flask db upgrade
+   ```
+
+5. Run the application:
+
+   ```
+   python3 app.py
+   ```
+
+6. Access the application in your browser at `http://localhost:5000`.
+
+## Usage
+
+1. Open the application in your web browser.
+2. Register a new user account or log in with an existing account.
+3. Enter your financial information and desired retirement age in the calculator form.
+4. Click "Calculate" to view your projected retirement savings for different investment strategies.
+
+## Technologies Used
+
+- Flask web framework
+- Flask-SQLAlchemy for database management
+- Flask-Migrate for database migrations
+- Flask-Login for user authentication
+- SQLite as the database
+
+## License
+
+This project is released under the [MIT License](https://opensource.org/licenses/MIT).
+
+Feel free to modify, distribute, or use this project as you see fit, provided you include the copyright notice and the permission notice in all copies or substantial portions of the software.
+
+## Group Members and Roles
+
+1. Siddhesh Agarwal - Backend development, database management, and Flask integration.
